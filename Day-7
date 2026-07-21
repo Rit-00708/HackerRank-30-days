@@ -1,0 +1,8 @@
+# Read the number of test cases
+t = int(input().strip())
+
+for _ in range(t):
+    s = input().strip()
+    # s[::2] gets even-indexed characters
+    # s[1::2] gets odd-indexed characters
+    print(f"{s[::2]} {s[1::2]}")
