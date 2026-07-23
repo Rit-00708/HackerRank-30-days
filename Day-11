@@ -1,0 +1,15 @@
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+if __name__ == '__main__':
+    n = int(input().strip())
+    
+    # bin(n)[2:] converts n to binary string (removing '0b' prefix)
+    # .split('0') splits it into groups of consecutive '1's
+    # max(..., key=len) finds the length of the longest group
+    print(max(len(group) for group in bin(n)[2:].split('0')))
