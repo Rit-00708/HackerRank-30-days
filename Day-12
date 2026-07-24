@@ -1,0 +1,33 @@
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+if __name__ == '__main__':
+    arr = []
+
+    for _ in range(6):
+        arr.append(list(map(int, input().rstrip().split())))
+
+    # Initialize max_sum to a very small number
+    # (Since minimum possible hourglass sum with constraints -9 to 9 is -63)
+    max_sum = -float('inf')
+
+    # Loop through the top-left corner of each possible 3x3 hourglass
+    for i in range(4):
+        for j in range(4):
+            # Calculate current hourglass sum
+            current_sum = (
+                arr[i][j] + arr[i][j+1] + arr[i][j+2] +
+                arr[i+1][j+1] +
+                arr[i+2][j] + arr[i+2][j+1] + arr[i+2][j+2]
+            )
+            
+            # Update maximum sum found
+            if current_sum > max_sum:
+                max_sum = current_sum
+
+    print(max_sum)
